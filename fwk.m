@@ -3,6 +3,7 @@
 % Authors: Lucas Burstein & Callahan Henry
 % Date: 4/4/25
 
+% TEST
 
 % fwk(q) calculates the forward kinematics of the OpenManipulator-X arm
 % q: vector of joint variables (5x1)
@@ -12,6 +13,11 @@ function Ts = fwk(q)
     q1 = q(1);
     q2 = q(2);
     q3 = q(3);
+
+% fwk(q) calculates the forward kinematics of the OpenManipulator-X arm
+% q: vector of joint variables (5x1)
+% Returns a cell array of matrices representing the forward kinematics
+function Ts = fwk(q)
     q4 = q(4);
     q5 = q(5);
 
