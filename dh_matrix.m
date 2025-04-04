@@ -9,8 +9,8 @@
 % returns the dh transformation matrix (A)
 function A = dh_matrix(dh)
     % Calculates the 'A' transformation matrix from the given DH parameters using the general formula for the 'A' matrix.
-    A = [cos(dh(1)), (-sin(dh(1))) * cos(dh(3)), sin(dh(1)) * sin(dh(3)), dh(0) * cos(dh(1)); 
-    sin(dh(1)), cos(dh(1)) * cos(dh(3)), (-cos(dh(1))) * (sin(dh(3))), dh(0) * sin(dh(1)); 
-    0, sin(dh(3)), cos(dh(3)), dh(2);
+    A = [cosd(dh(2)), (-sind(dh(2))) * cosd(dh(4)), sind(dh(2)) * sind(dh(4)), dh(1) * cosd(dh(2)); 
+    sind(dh(2)), cosd(dh(2)) * cosd(dh(4)), (-cosd(dh(2))) * (sind(dh(4))), dh(1) * sind(dh(2)); 
+    0, sind(dh(4)), cosd(dh(4)), dh(3);
     0, 0, 0, 1];
 end

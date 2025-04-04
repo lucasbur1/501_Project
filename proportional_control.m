@@ -8,7 +8,9 @@ function joint_velocities = proportional_control(x, x_d, x_d_dot, J, k)
     %       J: Jacobian (3 x n matrix)
     %       k: gain
 
-    error = x - x_d;
+    error = x_d - x;
+    disp("ERROR: ")
+    disp(error);
     joint_velocities = pinv(J) * (x_d_dot + k*error);
     
 end

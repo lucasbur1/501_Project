@@ -8,11 +8,11 @@
 function J = jacobian(q)
     % Calculating the forward kinematics 
     Ts = fwk(q);
-    A1 = Ts(1);
-    A2 = Ts(2);
-    A3 = Ts(3);
-    A4 = Ts(4);
-    T50 = Ts(5);
+    A1 = Ts{1};
+    A2 = Ts{2};
+    A3 = Ts{3};
+    A4 = Ts{4};
+    T50 = Ts{5};
     
     % Calculating various transformations required to calculate jacobian 
     T20 = A1 * A2;
@@ -24,11 +24,11 @@ function J = jacobian(q)
     J = zeros(6, 4);
     for i = 1:length(T)
         % Normalization ensures small errors won't accumulate
-        z = T{i}(0:3, 2);
+        z = T{i}(1:3, 3);
         z_norm = z / norm(z);
-        o = T{i}(0:3, 3);
-        J(0:3, i) = cross(z_norm, T50(0:3,3) - o);
-        J(3:6, i) = z_norm;
+        o = T{i}(1:3, 4);
+        J(1:3, i) = cross(z_norm, T50(1:3,4) - o);
+        J(4:6, i) = z_norm;
     end
 
 end
