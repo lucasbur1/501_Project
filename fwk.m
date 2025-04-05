@@ -4,7 +4,7 @@
 % Date: 4/4/25
 
 % fwk(q) calculates the forward kinematics of the OpenManipulator-X arm
-% q: vector of joint variables (5x1)
+% q: vector of joint variables (4x1)
 % Returns a cell array of matrices representing the forward kinematics
 function Ts = fwk(q)
     % Defining the joint angles
@@ -12,9 +12,8 @@ function Ts = fwk(q)
     q2 = q(2);
     q3 = q(3);
     q4 = q(4);
-    q5 = q(5);
 
-    % Defining the link lengths (mm)
+    % Defining the link lengths (m)
     l0 = 36.076/1000;
     l1 = 60.25/1000;
     l2 = 130.23/1000;

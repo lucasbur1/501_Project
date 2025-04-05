@@ -3,7 +3,7 @@
 % Date: 4/4/25
 
 % jacobian(q) calculates the jacobian of the OpenManipulator-X arm
-% q: vector of joint variables (5x1)
+% q: vector of joint variables (4x1)
 % Returns a matrix J representing the jacobian given q
 function J = jacobian(q)
     % Calculating the forward kinematics 

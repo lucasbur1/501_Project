@@ -1,4 +1,4 @@
-function joint_velocities = proportional_control(x, x_d, x_d_dot, J, k)
+function [joint_velocities, error] = proportional_control(x, x_d, x_d_dot, J, k)
     %PROPORTIONAL_CONTROL Calculates joint velocities needed for
     % proportional control. 
     %   INPUTS:
@@ -9,8 +9,8 @@ function joint_velocities = proportional_control(x, x_d, x_d_dot, J, k)
     %       k: gain
 
     error = x_d - x;
-    disp("ERROR: ")
-    disp(error);
+%     disp("ERROR: ")
+%     disp(error);
     joint_velocities = pinv(J) * (x_d_dot + k*error);
     
 end
