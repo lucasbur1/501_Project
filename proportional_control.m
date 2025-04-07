@@ -12,5 +12,10 @@ function [joint_velocities, error] = proportional_control(x, x_d, x_d_dot, J, k)
 %     disp("ERROR: ")
 %     disp(error);
     joint_velocities = pinv(J) * (x_d_dot + k*error);
+
+
+    if i == 20
+        run = false;
+    end
     
 end

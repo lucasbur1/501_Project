@@ -58,7 +58,11 @@ tic
 errors = [];
 time = [];
 
+i = 0;
+
 while(run)
+
+    i = i + 1;
     % Calculating forward kinematics
     Ts = fwk(q);
     x = Ts{5}(1:3,4);
@@ -70,12 +74,14 @@ while(run)
     % Calculating Needed Joint Velocities:
     [q_dot, error] = proportional_control(x, x_d, x_d_dot, J_lin, k);
     q_dot = q_dot';
-
+if i == 20
+        run = false;
+    end
     errors(end+1) = norm(error);
     time(end+1) = toc;
 
     if (norm(error) < (0.01* error_0))
-        run = false;
+        % run = false;
         % Finish timer 
         toc;
     end
@@ -94,6 +100,10 @@ while(run)
         %disp(q_dot)
         robot.writeJoints(q);
         pause(dt)
+    end
+
+    if i == 20
+        run = false;
     end
     
 end
